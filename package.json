@@ -15,7 +15,8 @@
     "prod:reload": "pm2 reload --update-env telemedicineProd",
     "prod:logs": "pm2 logs --update-env telemedicineProd",
     "test": "jest",
-    "verify-tests": "jest --coverage"
+    "verify-tests": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "jest": {
     "modulePaths": [
