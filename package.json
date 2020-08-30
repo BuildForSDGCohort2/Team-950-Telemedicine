@@ -16,7 +16,7 @@
     "prod:logs": "pm2 logs --update-env telemedicineProd",
     "test": "jest",
     "verify-tests": "jest --coverage",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "knex": "knex",
     "knex:m:m": "npm run knex -- migrate:make",
     "knex:m:l": "npm run knex -- migrate:latest",
