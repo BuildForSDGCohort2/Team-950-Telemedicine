@@ -1,8 +1,7 @@
-// const passwordManager = require('../../util/password.manager');
+const passwordManager = require('../../util/password.manager');
 
 async function createUsers() {
-  // const password = await passwordManager.hash('password');
-  const password = 'password';
+  const password = await passwordManager.hash('password');
 
   const users = [
     {
