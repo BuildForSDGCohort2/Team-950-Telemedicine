@@ -1,11 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
 
 import { App } from 'components/App';
 
 import '../styles/index.css';
 
 ReactDOM.hydrate(
-  <App initialData={window.__R_DATA.initialData} />,
+  <BrowserRouter>
+    <App initialData={window.__R_DATA.initialData} />
+  </BrowserRouter>,
   document.getElementById('root'),
 );

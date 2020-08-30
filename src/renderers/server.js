@@ -1,9 +1,13 @@
 import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
+import { Helmet } from 'react-helmet';
+import { StaticRouter } from "react-router-dom";
 
 import { App } from 'components/App';
 
-export async function serverRenderer() {
+// consider https://github.com/staylor/react-helmet-async
+
+export async function serverRenderer(req, context) {
   const initialData = {
     appName: 'Reactful',
   };
@@ -12,11 +16,16 @@ export async function serverRenderer() {
     title: `Hello ${initialData.appName}`,
   };
 
+  const helmet = Helmet.renderStatic();
+
   return Promise.resolve({
     initialData,
     initialMarkup: ReactDOMServer.renderToString(
-      <App initialData={initialData} />,
+      <StaticRouter>
+        <App initialData={initialData} location={req.url} context={context}/>
+      </StaticRouter>
     ),
     pageData,
+    helmet
   });
 }
